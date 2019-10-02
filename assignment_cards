@@ -1,0 +1,49 @@
+import random
+class Deck:
+    l = list()
+    m=list()
+    def __init__(self):
+        for i in range(4):
+            for k in range(13):
+                z=cards(i,k)
+                Deck.l.append(z)
+
+    def __str__(self):
+         for i in Deck.l:
+             Deck.m.append(str(i))
+         return "\n".join(Deck.m)
+
+    def shuff(self):
+        self.c=[]
+        self.remaining=[]
+        for i in range(5):
+            self.c.append(random.choice(Deck.m))
+        for i in self.c:
+            print(i)
+        return self.c
+
+class cards:
+        def __init__(self,a,b):
+            suit = ['Clubs', 'Diamonds', 'Spades', 'Hearts']
+            ranks = ["Ace", 2, 3, 4, 5, 6, 7, 8, 9, 10, 'Jack', "Queen", "King"]
+            self.suits1 = suit[a]
+            self.ranks1=ranks[b]
+
+
+        def __str__(self):
+            return '%s of %s' %(self.ranks1, self.suits1,)
+
+d=Deck()
+print('The number of Cards in the Deck as follows ')
+print(d)
+number=int(input("Enter the number of players "))
+diction=dict()
+for i in range(number):
+    diction[i]=str(d.shuff())
+
+print(diction)
+
+
+
+
+
